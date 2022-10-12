@@ -1,3 +1,7 @@
+/**
+ * スタイルガイド
+ * https://typescript-jp.gitbook.io/deep-dive/styleguide
+ */
 module.exports = {
   env: {
     browser: true,
@@ -7,6 +11,11 @@ module.exports = {
     'eslint:recommended',
     'plugin:react/recommended',
     'plugin:@typescript-eslint/recommended',
+    /**
+     * React17以降では、JSXがreact/jsx-runtimeからインポートされるようになったため、Reactをスコープに含める必要がなくなった
+     * https://github.com/jsx-eslint/eslint-plugin-react/blob/HEAD/docs/rules/react-in-jsx-scope.md
+     */
+    'plugin:react/jsx-runtime',
   ],
   parser: '@typescript-eslint/parser',
   parserOptions: {
@@ -24,7 +33,6 @@ module.exports = {
     semi: ['error', 'always'],
     'react-hooks/rules-of-hooks': 'error',
     'react-hooks/exhaustive-deps': 'warn',
-    'react/react-in-jsx-scope': 'off',
   },
   settings: {
     react: {
